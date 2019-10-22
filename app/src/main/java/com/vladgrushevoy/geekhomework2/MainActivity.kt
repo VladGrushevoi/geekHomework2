@@ -4,7 +4,6 @@ import android.content.Intent
 import android.content.Intent.*
 import android.net.Uri
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlin.random.Random
@@ -32,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun randomNumber(view: View) {
+    fun randomNumber() {
 
         val fromString = From.text.toString()
         val from = Integer.parseInt(fromString)
