@@ -14,6 +14,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        if (savedInstanceState != null) {
+            From.text = savedInstanceState.getString("From")
+            to.text = savedInstanceState.getString("to")
+            viewRandom.text = savedInstanceState.getString("viewRandom")
+        }
         edit_but.setOnClickListener {
             startActivityForResult(Intent(this, EditActivity::class.java).apply {
                 putExtra("From", From.text)
@@ -21,6 +26,12 @@ class MainActivity : AppCompatActivity() {
             }, 1)
         }
         sendEmail()
+    }
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString("From", From.text.toString())
+        outState.putString("to", to.text.toString())
+        outState.putString("viewRandom", viewRandom.text.toString())
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
