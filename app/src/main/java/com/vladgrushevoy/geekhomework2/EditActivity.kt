@@ -14,18 +14,23 @@ class EditActivity : AppCompatActivity() {
         setContentView(R.layout.activity_edit)
         getData()
         ok_but.setOnClickListener {
-            val from = from_edit.text.toString().toInt()
-            val to= to_edit.text.toString().toInt()
-            if(from < to) {
-                setResult(
-                    Activity.RESULT_OK,
-                    Intent().apply {
-                        putExtra("from_refactored", from_edit.text.toString())
-                        putExtra("to_refactored", to_edit.text.toString())
-                    })
-                finish()
-            }else{
-                Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
+            val from = from_edit.text.toString()
+            val to= to_edit.text.toString()
+            if(from.isNotEmpty() && to.isNotEmpty()){
+
+                if(from.toInt() < to.toInt()) {
+                    setResult(
+                        Activity.RESULT_OK,
+                        Intent().apply {
+                            putExtra("from_refactored", from_edit.text.toString())
+                            putExtra("to_refactored", to_edit.text.toString())
+                        })
+                    finish()
+                }else{
+                    Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
+                }
+            } else {
+                Toast.makeText(this, "lose data", Toast.LENGTH_SHORT).show()
             }
         }
     }
