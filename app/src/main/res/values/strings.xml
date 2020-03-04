@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HomeWork</string>
+    <string name="app_name">Randomaizer</string>
     <string name="label_rnd">Get a random number</string>
     <string name="from">From:</string>
     <string name="to">To:</string>
