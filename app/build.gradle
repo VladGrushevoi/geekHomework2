@@ -23,6 +23,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    signingConfigs {
+        release {
+            storeFile file("horoskopSms.jks")
+            storePassword "1q2w3e"
+            keyAlias "horoskopSms"
+            keyPassword "1q2w3e"
+        }
+    }
 }
 
 dependencies {
